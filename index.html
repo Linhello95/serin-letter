@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#28142e">
+<meta name="description" content="할아버지의 생신을 축하하는 손녀 세린의 편지">
+<title>할아버지, 생신 축하드려요</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night:#241329; --wine:#542544; --berry:#8d3a59; --rose:#e68a9b;
+    --blush:#f7b7b6; --cream:#fff9ed; --paper:#fffaf0; --ink:#4b2938;
+    --muted:#826577; --gold:#e6bd70; --gold-light:#fff1c7;
+    --gold-dark:#a57936; --white:#fff9fa;
+    --display:"Nanum Myeongjo","Batang",serif;
+    --body:"Gowun Batang","Apple SD Gothic Neo",serif;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box}
+  html{min-height:100%;scroll-behavior:smooth}
+  body{min-height:100vh;margin:0;overflow-x:hidden;color:var(--white);font:21px/1.75 var(--body);
+    background:
+       radial-gradient(ellipse at 10% 15%,rgba(201,94,120,.28),transparent 38%),
+       radial-gradient(ellipse at 95% 28%,rgba(233,177,93,.17),transparent 35%),
+       radial-gradient(ellipse at 50% 92%,rgba(144,48,90,.35),transparent 48%),
+       linear-gradient(160deg,#442341 0%,#28152e 50%,#1a1126 100%);
+    padding:18px max(14px,env(safe-area-inset-right)) 68px max(14px,env(safe-area-inset-left));
+    background-attachment:scroll}
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.65;
+    background-image:
+      radial-gradient(circle,rgba(255,233,182,.8) 1px,transparent 1.8px),
+      radial-gradient(circle,rgba(255,255,255,.5) 1px,transparent 1.8px);
+    background-size:93px 113px,139px 151px;background-position:21px 17px,68px 87px}
+  .stage{width:100%;max-width:510px;margin:0 auto;position:relative;isolation:isolate}
+  .stage::before{content:"";position:absolute;z-index:-1;inset:53px -6px auto;height:470px;
+    background:radial-gradient(ellipse,rgba(226,143,142,.13),transparent 70%);pointer-events:none}
+  .top-banner{height:86px;margin:0 auto 7px;position:relative;display:grid;place-items:start center}
+  .garland{position:absolute;inset:0 4px auto;height:68px;display:flex;justify-content:space-evenly;
+    border-top:2px solid rgba(247,211,148,.65);border-radius:50% 50% 0 0/22px 22px 0 0;transform:translateY(11px)}
+  .garland span{width:24px;height:32px;transform:translateY(0) rotate(-3deg);
+    background:linear-gradient(150deg,var(--gold-light),#c58652);clip-path:polygon(0 0,100% 0,50% 100%);
+    filter:drop-shadow(0 3px 2px rgba(0,0,0,.15))}
+  .garland span:nth-child(3n+2){background:linear-gradient(135deg,#f5c6c4,#c95a7d);transform:rotate(6deg)}
+  .garland span:nth-child(4n+1){background:linear-gradient(145deg,#e9d2ff,#aa8fc5)}
+  .brand-ribbon{position:relative;z-index:1;font:700 12px/1.2 var(--display);letter-spacing:.22em;
+    color:#ffe8c4;text-shadow:0 1px 8px #31202d;padding:51px 8px 0}
+  .scene{display:grid;justify-items:stretch;gap:18px;animation:scene-in .75s cubic-bezier(.2,.75,.2,1) both}
+  .scene[hidden], [hidden]{display:none!important}
+  @keyframes scene-in{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  .eyebrow{font:800 14px/1.6 var(--display);letter-spacing:.17em;color:var(--gold-light);
+    text-align:center;text-transform:uppercase;margin:0;word-break:keep-all}
+  .eyebrow::before,.eyebrow::after{content:"✦";color:var(--gold);font-size:12px;display:inline-block;
+    margin:0 11px;vertical-align:middle}
+  h1,h2,p{margin-top:0}
+  h1{font:800 clamp(30px,7.9vw,41px)/1.48 var(--display);text-align:center;letter-spacing:-.065em;
+    word-break:keep-all;margin:0;color:#fff9ef;text-shadow:0 3px 14px rgba(0,0,0,.24)}
+  h1 em{font-style:normal;color:var(--gold-light);text-shadow:0 3px 22px rgba(231,170,100,.28)}
+  .lead,.hint{text-align:center;word-break:keep-all;margin:0;color:#f6d8de;
+    font-size:19px;line-height:1.72}
+  .lead{color:#f8dfe0}
+  .hero-heading{display:grid;gap:12px;justify-items:center}
+  .hero-heading .tiny-mark{font:700 15px/1.1 var(--display);letter-spacing:.28em;color:#f3cf9e;
+    border-bottom:1px solid rgba(239,198,135,.6);padding:0 13px 11px}
+  .hero-heading h1{margin:0 0 3px}
+  button{font-family:var(--display);font-weight:800;cursor:pointer;border:0;border-radius:100px;
+    font-size:22px;line-height:1.4;max-width:100%;min-height:66px;padding:17px 24px;
+    background:linear-gradient(145deg,#fff2c9 0%,#efc779 46%,#c8944e 100%);
+    box-shadow:0 8px 24px rgba(16,9,20,.35),inset 0 2px 1px rgba(255,255,255,.75),inset 0 -2px 0 rgba(117,71,24,.23);
+    color:#502640;transition:transform .2s,box-shadow .2s,border-color .2s;
+    text-align:center;word-break:keep-all}
+  button:not(:disabled):hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(16,9,20,.45),inset 0 2px 1px rgba(255,255,255,.8)}
+  button:not(:disabled):active{transform:translateY(1px)}
+  button:focus-visible{outline:3px solid #fff9b6;outline-offset:5px}
+  button.ghost{min-height:56px;background:rgba(89,44,74,.42);color:#fff4e6;border:1px solid rgba(243,207,156,.7);
+    box-shadow:inset 0 1px rgba(255,255,255,.08);font:700 18px var(--body);padding:13px 24px}
+  .cta{width:min(100%,340px);justify-self:center}
+  .divider-mark{display:flex;align-items:center;justify-content:center;gap:13px;color:var(--gold);font-size:20px}
+  .divider-mark::before,.divider-mark::after{content:"";display:block;width:55px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+  .divider-mark::after{transform:rotate(180deg)}
+  .birthday-tag{justify-self:center;padding:8px 19px;border:1px solid rgba(239,198,135,.55);
+    border-radius:99px;letter-spacing:.14em;color:#f4d7af;font:700 12px var(--display);
+    background:rgba(244,190,132,.05)}
+  /* scene 0 - ornate celebration + cake */
+  .cakewrap{gap:16px}
+  .celebration-visual{height:355px;position:relative;display:grid;place-items:center;margin-top:1px}
+  .celebration-visual::before{content:"";position:absolute;inset:23px 40px 8px;border:1px solid rgba(237,186,121,.4);
+    border-radius:50% 50% 47% 47%;box-shadow:0 0 0 12px rgba(240,192,139,.035),inset 0 0 45px rgba(245,154,170,.12);
+    background:radial-gradient(ellipse at 50% 45%,rgba(251,200,143,.13),rgba(116,42,79,.08) 62%,transparent 65%)}
+  .celebration-visual::after{content:"✦";position:absolute;top:27px;left:49%;font-size:21px;color:#fff0b8;
+    text-shadow:0 0 19px #f3be5f;animation:twinkle 2.1s ease-in-out infinite alternate}
+  .cake-svg{height:min(345px,90vw);width:min(345px,90vw);z-index:1;
+    filter:drop-shadow(0 16px 20px rgba(24,13,29,.5));cursor:pointer}
+  .cake-visual-message{position:absolute;bottom:0;font:700 11px var(--display);letter-spacing:.24em;color:#f5d49a}
+  .floating-flower{position:absolute;z-index:2;filter:drop-shadow(0 4px 9px rgba(0,0,0,.18));pointer-events:none}
+  .floating-flower.fl1{width:86px;left:0;bottom:30px;transform:rotate(-23deg)}
+  .floating-flower.fl2{width:74px;right:0;bottom:32px;transform:rotate(19deg)}
+  .floating-flower.fl3{width:53px;right:8%;top:30px;transform:rotate(-11deg)}
+  .float-balloon{position:absolute;width:46px;height:60px;border-radius:50% 50% 48% 48%;z-index:0;
+    background:radial-gradient(circle at 29% 20%,rgba(255,255,255,.75),transparent 25%),linear-gradient(120deg,#ffb0ac,#b9577e);
+    box-shadow:inset -9px -7px 13px rgba(83,20,65,.24),0 8px 16px rgba(0,0,0,.15);
+    animation:float 4.6s ease-in-out infinite}
+  .float-balloon::before{content:"";position:absolute;bottom:-9px;left:19px;width:8px;height:11px;background:#b9577e;clip-path:polygon(50% 0,100% 100%,0 100%)}
+  .float-balloon::after{content:"";position:absolute;top:100%;left:23px;height:73px;width:1px;background:rgba(255,224,198,.7)}
+  .float-balloon.b1{left:1%;top:35px;transform:rotate(-11deg)}
+  .float-balloon.b2{right:3%;top:38px;background:radial-gradient(circle at 28% 20%,rgba(255,255,255,.85),transparent 25%),linear-gradient(135deg,#fff1ab,#d89f50);animation-delay:-2.2s}
+  .float-balloon.b2::before{background:#d89f50}
+  .flame{transform-origin:50% 100%;transform-box:fill-box;animation:flicker .9s ease-in-out infinite alternate}
+  .halo{animation:halo 1.25s ease-in-out infinite alternate}
+  .smoke{opacity:0;transform-origin:50% 100%;transform-box:fill-box}
+  .cake-svg.out .flame,.cake-svg.out .halo{animation:none;opacity:0;transition:opacity .25s}
+  .cake-svg.out .smoke{animation:rise 1.7s ease-out forwards}
+  @keyframes flicker{from{transform:scale(.98) rotate(-4deg)}to{transform:scale(1.12,.89) rotate(3deg)}}
+  @keyframes halo{from{opacity:.45}to{opacity:.85}}
+  @keyframes rise{0%{opacity:.8;transform:translateY(0) scale(.75)}100%{opacity:0;transform:translateY(-64px) scale(1.6)}}
+  @keyframes float{0%,100%{translate:0 0}50%{translate:0 -12px}}
+  @keyframes twinkle{from{opacity:.4;transform:scale(.75)}to{opacity:1;transform:scale(1.15)}}
+  .cake-controls{display:grid;justify-items:center;gap:10px}
+  .cake-btn{font-size:22px;padding:17px 20px}
+  .cake-controls .ghost{font-size:18px;min-width:260px}
+  .mic-status{color:#ffe5c9;font-size:17px;min-height:1.6em;text-align:center;margin:0;word-break:keep-all}
+  .meter{width:220px;height:9px;max-width:90%;justify-self:center;border-radius:20px;background:rgba(255,255,255,.22);overflow:hidden}
+  .meter i{display:block;width:0;height:100%;background:linear-gradient(90deg,#ffa3ae,#ffe0a3);transition:width .08s}
+  /* scene 1 - invitation envelope */
+  .mail{gap:22px;animation:none}
+  .mail-card-title{display:grid;gap:12px;justify-items:center}
+  .mail-card-title h1{font-size:35px}
+  .envelope-wrapper{padding:19px 6px 36px;position:relative}
+  .envelope-wrapper::before{content:"";position:absolute;inset:8px 15px 14px;border:1px solid rgba(238,191,123,.22);border-radius:20px;
+    background:radial-gradient(ellipse at 50% 20%,rgba(231,159,161,.11),transparent 70%)}
+  .envelope{position:relative;width:100%;aspect-ratio:1.48;perspective:1000px;
+    filter:drop-shadow(0 19px 19px rgba(5,2,7,.35));cursor:pointer;touch-action:manipulation}
+  .env-back{position:absolute;inset:0;border-radius:11px;background:linear-gradient(145deg,#9b5268,#6c2e50)}
+  .env-letter{position:absolute;left:8%;right:8%;top:11%;height:76%;border:3px double #deb779;border-radius:6px;
+    display:grid;place-content:center;text-align:center;gap:5px;background:linear-gradient(160deg,#fffef3,#ffe8dc);color:#713b51;
+    font:800 20px var(--display);box-shadow:0 2px 8px rgba(0,0,0,.1)}
+  .env-letter::before{content:"✿";color:#b87e61;font-size:29px}
+  .env-front{position:absolute;inset:0;border-radius:11px;background:linear-gradient(165deg,#bd6d7d,#913b5a 62%,#6f2c4e);
+    clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);box-shadow:inset 0 -3px 0 rgba(241,187,119,.2)}
+  .env-front::after{content:"";position:absolute;inset:9px;border:1px solid rgba(255,227,175,.62);border-radius:6px;
+    clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%)}
+  .env-flap{position:absolute;top:0;left:0;right:0;height:57%;z-index:2;transform-origin:top center;
+    transition:transform .85s cubic-bezier(.4,0,.2,1);
+    clip-path:polygon(0 0,100% 0,50% 100%);background:linear-gradient(180deg,#e3a0a0,#a64b6a)}
+  .env-flap::after{content:"";position:absolute;inset:8px;border:1px solid rgba(255,232,190,.4);
+    clip-path:polygon(0 0,100% 0,50% 100%)}
+  .envelope.open .env-flap{transform:rotateX(180deg);z-index:0}
+  .envelope.open .env-letter{animation:slideout .85s .45s cubic-bezier(.2,.8,.2,1) forwards}
+  .seal-btn{position:absolute;top:55%;left:50%;z-index:3;min-height:0;width:108px;height:108px;padding:0;
+    min-width:0;border-radius:50%;font:800 22px var(--display);color:#702b4a;
+    border:7px double #fff0c1;box-shadow:0 0 0 3px #9e526b,0 8px 22px rgba(39,15,29,.4),0 0 23px rgba(251,199,115,.3);
+    transform:translate(-50%,-50%);touch-action:manipulation;user-select:none;
+    transition:opacity .3s,background-color .2s;animation:none}
+  /* Ordinary button hover/active rules replace transform, which used to make the
+     centered seal jump away from the pointer. Keep it anchored even on touch. */
+  button.seal-btn:not(:disabled):hover,
+  button.seal-btn:not(:disabled):active,
+  button.seal-btn:focus-visible{
+    transform:translate(-50%,-50%);
+    box-shadow:0 0 0 3px #9e526b,0 8px 22px rgba(39,15,29,.4),0 0 23px rgba(251,199,115,.3)
+  }
+  .envelope.open .seal-btn{opacity:0;pointer-events:none;transition:opacity .3s;animation:none}
+  .addr{position:absolute;bottom:10%;left:7%;z-index:2;color:#fff5e7;font:800 22px/1.4 var(--display);text-shadow:0 1px 7px rgba(37,8,35,.25)}
+  .addr small{font:400 14px/1.6 var(--body);color:#ffdfd8;display:block}
+  .stamp{position:absolute;bottom:9%;right:6%;z-index:2;border:1.5px solid #f2ce90;border-radius:4px;
+    padding:5px 8px;color:#fff0ca;font:700 13px/1.4 var(--display);text-align:center;letter-spacing:.1em}
+  @keyframes slideout{to{transform:translateY(-28%)}}
+  /* scene 2 - luxury cream stationery */
+  .letter-overline{text-align:center;font:700 14px var(--display);letter-spacing:.2em;color:var(--gold-light)}
+  .sheet{position:relative;overflow:hidden;border-radius:14px;padding:33px 28px 34px;
+    background:
+      radial-gradient(circle at 0 0,rgba(234,174,161,.16),transparent 35%),
+      radial-gradient(circle at 100% 100%,rgba(245,201,132,.13),transparent 40%),
+      linear-gradient(145deg,#fffdf6,#fff7ed);
+    color:var(--ink);box-shadow:0 0 0 2px #ecd29e,0 0 0 6px #6c3450,0 0 0 7px #e5be81,
+      0 20px 55px rgba(10,5,17,.43);animation:scene-in .7s ease-out both}
+  .sheet::before{content:"";pointer-events:none;position:absolute;inset:11px;border:1px solid rgba(188,128,75,.54);border-radius:6px}
+  .sheet::after{content:"";pointer-events:none;position:absolute;inset:17px;border:1px solid rgba(225,185,131,.3);border-radius:3px}
+  .floral-corner{position:absolute;width:105px;height:105px;z-index:0;opacity:.82;pointer-events:none}
+  .floral-corner.top{top:-3px;left:-4px}
+  .floral-corner.bottom{bottom:-3px;right:-4px;transform:rotate(180deg)}
+  .sheet > *:not(.floral-corner){position:relative;z-index:1}
+  .head{display:grid;gap:10px;justify-items:center;text-align:center;margin-bottom:32px;padding:21px 7px 28px;
+    border-bottom:1px solid rgba(173,116,58,.34)}
+  .head .eyebrow{color:#ab6d53;font-size:12px;letter-spacing:.12em}
+  .head .eyebrow::before,.head .eyebrow::after{color:#bf8a56;font-size:10px;margin:0 6px}
+  .head h1{font-size:clamp(26px,6.8vw,33px);line-height:1.48;color:#7a3c52;text-shadow:none;letter-spacing:-.06em}
+  .date{font:400 16px var(--body);color:#926f74;letter-spacing:.04em}
+  .sheet .greeting{font:800 24px/1.6 var(--display);color:#773e51;margin:0 0 22px}
+  .sheet p{font-size:21px;line-height:1.91;margin:0 0 25px;word-break:keep-all;letter-spacing:-.018em}
+  .sign{display:grid;gap:6px;justify-items:end;padding-top:24px;margin-top:26px;border-top:1px solid #e4c7a1;text-align:right}
+  .sign .from{font-size:16px;color:#906a70}
+  .sign .name{font:800 29px var(--display);color:#824359}
+  .post-letter{text-align:center;color:#f1ced3;font-size:17px;line-height:1.65;margin:12px 0 0}
+  /* scene 3 - response stickers */
+  .reply-header{display:grid;gap:12px;justify-items:center;text-align:center}
+  .reply-header h1{font-size:33px}
+  .stickers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:7px}
+  .sticker{min-width:0;min-height:157px;padding:21px 10px 18px;border-radius:18px;
+    background:linear-gradient(145deg,#fff8ee,#ffe6e4);color:#663249;
+    border:2px solid #efc68d;font:800 21px/1.4 var(--display);display:grid;align-content:center;justify-items:center;gap:14px;
+    box-shadow:0 12px 22px rgba(20,10,29,.26),inset 0 1px 0 white;word-break:keep-all}
+  .sticker:nth-child(3n+2){background:linear-gradient(145deg,#fffaf1,#ffe8c5)}
+  .sticker:nth-child(3n){background:linear-gradient(145deg,#fff8fa,#f5e7ff)}
+  .sticker .emo{font-size:52px;line-height:1;filter:drop-shadow(0 4px 4px rgba(101,43,48,.14))}
+  .sticker.picked,.sticker:hover{border-color:#fff2c3;box-shadow:0 12px 28px rgba(12,7,23,.4),0 0 0 3px rgba(255,232,185,.4)}
+  .sticker:disabled{opacity:.6;cursor:default}
+  /* scene 4 - the keepsake card */
+  .kept{background:linear-gradient(155deg,#fff9f0,#fff0ec);border:7px double #e7c78d;
+    outline:5px solid rgba(89,39,68,.75);border-radius:16px;padding:39px 24px 42px;
+    box-shadow:0 17px 35px rgba(11,6,16,.37);color:var(--ink);display:grid;justify-items:center;gap:12px;
+    text-align:center;animation:scene-in .6s ease-out both}
+  .kept .big{font-size:103px;line-height:1.2;animation:pop .7s cubic-bezier(.2,1.5,.45,1) both}
+  .kept .label{font:800 34px var(--display);color:#813f58;word-break:keep-all}
+  .kept .when{font-size:16px;color:#886877}
+  .kept .thanks{font-size:20px;line-height:1.85;margin:5px 0 0;word-break:keep-all}
+  @keyframes pop{from{opacity:0;transform:scale(.5) rotate(-10deg)}to{opacity:1;transform:none}}
+  .history{display:grid;gap:8px;color:#fff0e5;font-size:17px;margin-top:8px}
+  .history ul{margin:0;padding:0;list-style:none}
+  .history li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid rgba(247,212,159,.35)}
+  .history li span:last-child{color:#ebc8c5;font-size:14px}
+  .note{text-align:center;color:#efc8cd;font-size:16px;margin:0;word-break:keep-all}
+  /* glitter and confetti */
+  .sparkles{position:absolute;z-index:-1;inset:0;pointer-events:none;overflow:hidden}
+  .sparkles span{position:absolute;color:#fce2a7;opacity:.8;text-shadow:0 0 10px #f5bc73;animation:twinkle 3s ease-in-out infinite alternate}
+  .sparkles span:nth-child(1){left:4%;top:95px;font-size:19px}
+  .sparkles span:nth-child(2){right:8%;top:170px;font-size:12px;animation-delay:-1s}
+  .sparkles span:nth-child(3){left:10%;top:340px;font-size:13px;animation-delay:-2s}
+  .sparkles span:nth-child(4){right:5%;top:440px;font-size:22px;animation-delay:-.4s}
+  .sparkles span:nth-child(5){left:7%;top:545px;font-size:11px;animation-delay:-1.4s}
+  #confetti-layer{position:fixed;inset:0;z-index:100;pointer-events:none;overflow:hidden}
+  .confetti-piece{position:absolute;top:-18px;width:10px;height:17px;opacity:.95;
+    animation:confetti-fall var(--duration,3s) cubic-bezier(.25,.75,.53,1) var(--delay,0s) forwards}
+  @keyframes confetti-fall{0%{transform:translate3d(0,-35px,0) rotate(0deg);opacity:1}
+    90%{opacity:1}100%{transform:translate3d(var(--drift,40px),108vh,0) rotate(var(--spin,540deg));opacity:0}}
+  .footer{margin-top:36px;text-align:center;color:rgba(255,229,204,.67);font:400 13px var(--body);letter-spacing:.13em}
+  /* sketch reveal: text is fully laid out, then "drawn in" by a rough wipe mask */
+  #letter-body .pending{opacity:0}
+  #letter-body .sketch{opacity:1;
+    -webkit-mask-image:linear-gradient(100deg,#000 0%,#000 38%,rgba(0,0,0,.55) 46%,rgba(0,0,0,.15) 52%,transparent 60%);
+    mask-image:linear-gradient(100deg,#000 0%,#000 38%,rgba(0,0,0,.55) 46%,rgba(0,0,0,.15) 52%,transparent 60%);
+    -webkit-mask-size:260% 100%;mask-size:260% 100%;
+    -webkit-mask-position:100% 0;mask-position:100% 0;
+    animation:sketch var(--dur,2.4s) cubic-bezier(.3,.1,.3,1) forwards}
+  @keyframes sketch{0%{-webkit-mask-position:100% 0;mask-position:100% 0;filter:blur(1.2px)}
+    70%{filter:blur(.4px)}100%{-webkit-mask-position:0% 0;mask-position:0% 0;filter:blur(0)}}
+  #letter-body .done{opacity:1;-webkit-mask-image:none;mask-image:none;animation:none;filter:none}
+  .sheet .pencil{position:absolute;font-size:26px;line-height:1;pointer-events:none;z-index:3;transform:rotate(-15deg);
+    transition:left .12s linear,top .12s linear;filter:drop-shadow(0 2px 2px rgba(0,0,0,.25))}
+  .pencil[hidden]{display:none!important}
+  .skip-typing{justify-self:center;min-height:48px;font-size:16px;padding:10px 20px}
+  .music-btn{position:fixed;bottom:max(16px,env(safe-area-inset-bottom));right:max(14px,env(safe-area-inset-right));z-index:50;
+    width:52px;height:52px;min-height:0;min-width:0;padding:0;border-radius:50%;font-size:22px;
+    background:rgba(89,44,74,.75);color:#ffe8c4;border:1px solid rgba(243,207,156,.7);box-shadow:0 6px 16px rgba(0,0,0,.35);
+    backdrop-filter:blur(6px)}
+  .music-btn.on{animation:spin 6s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media (max-width:390px){
+    .top-banner{height:75px}.brand-ribbon{padding-top:49px;font-size:11px}
+    .cakewrap{gap:12px}.celebration-visual{height:312px}
+    .cake-svg{height:min(315px,90vw);width:min(315px,90vw)}
+    .floating-flower.fl1{width:69px}.floating-flower.fl2{width:65px}
+    .sheet{padding:28px 23px 31px}.sheet p{font-size:20px}.sheet .greeting{font-size:23px}
+    .sticker{font-size:19px;min-height:145px}.sticker .emo{font-size:47px}
+  }
+  @media (min-width:720px){body{padding-top:30px}.stage{max-width:540px}.celebration-visual{height:385px}
+    .cake-svg{width:370px;height:370px}.sheet{padding-left:38px;padding-right:38px}}
+  @media print{body{background:#fff;color:#222;padding:0}.top-banner,.cakewrap,.mail,.reply-header,.stickers,.footer,.post-letter,#to-reply{display:none!important}
+    #scene-letter{display:block!important}.sheet{box-shadow:none;border:2px solid #b99b70}.sheet p{font-size:17px}
+    .stage{max-width:100%}}
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
+    scroll-behavior:auto!important;transition-duration:.01ms!important}.envelope.open .env-letter{transform:translateY(-28%)}}
+</style>
+</head>
+<body>
+<!-- Embedded vector motif, no external image assets required. -->
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="rose-spray" viewBox="0 0 120 120">
+      <g fill="none" stroke="#a78d65" stroke-width="2" stroke-linecap="round"><path d="M3 116 C19 88 18 49 64 11"/><path d="M7 100 C38 80 50 80 79 59"/></g>
+      <g fill="#789c7b"><path d="M15 82 Q8 55 31 55 Q31 73 15 82Z"/><path d="M32 60 Q21 34 45 29 Q48 52 32 60Z"/>
+      <path d="M47 39 Q44 13 71 13 Q67 33 47 39Z"/><path d="M41 80 Q60 62 73 74 Q59 88 41 80Z"/>
+      <path d="M5 106 Q29 92 40 108 Q23 117 5 106Z"/></g>
+      <g transform="translate(64 20)"><circle r="23" fill="#e5acb1"/><g fill="#f5cbd0"><ellipse cy="-13" rx="10" ry="15"/><ellipse cx="13" rx="14" ry="9"/>
+      <ellipse cy="13" rx="10" ry="14"/><ellipse cx="-13" rx="14" ry="9"/></g><circle r="10" fill="#c86f8e"/><path d="M-5 0 Q0 -8 5 0 Q0 6 -5 0Z" fill="#f9e3d1"/></g>
+      <g transform="translate(30 89)"><circle r="13" fill="#f4d8aa"/><g fill="#f9e7c8"><ellipse cy="-9" rx="6" ry="10"/><ellipse cy="9" rx="6" ry="10"/><ellipse cx="-9" rx="10" ry="6"/><ellipse cx="9" rx="10" ry="6"/></g><circle r="5" fill="#dca768"/></g>
+      <circle cx="84" cy="57" r="4" fill="#e7bb7e"/><circle cx="93" cy="66" r="3" fill="#e7bb7e"/>
+    </symbol>
+  </defs>
+</svg>
+<div id="confetti-layer" aria-hidden="true"></div>
+<audio id="bgm" src="bgm.mp3" loop preload="auto"></audio>
+<button class="music-btn" id="music-btn" aria-label="배경음악 켜기/끄기" aria-pressed="false">🔇</button>
+<main class="stage">
+  <div class="sparkles" aria-hidden="true"><span>✧</span><span>✦</span><span>✧</span><span>✦</span><span>✧</span></div>
+  <div class="top-banner" aria-hidden="true"><div class="garland"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><span class="brand-ribbon">A SPECIAL BIRTHDAY CELEBRATION</span></div>
+  <!-- First scene: a birthday wish and interactive candles -->
+  <section class="scene cakewrap" id="scene-cake" aria-label="생신 축하 케이크">
+    <div class="hero-heading">
+      <div class="tiny-mark">HAPPY BIRTHDAY</div>
+      <p class="eyebrow">오늘의 주인공은 바로 할아버지</p>
+      <h1>할아버지<br><em>생신 축하드려요!</em></h1>
+      <p class="lead">손녀 세린이가 준비한<br>작은 축하 선물이에요.</p>
+    </div>
+    <div class="celebration-visual">
+      <div class="float-balloon b1" aria-hidden="true"></div><div class="float-balloon b2" aria-hidden="true"></div>
+      <svg class="floating-flower fl1" viewBox="0 0 120 120" aria-hidden="true"><use href="#rose-spray"/></svg>
+      <svg class="floating-flower fl2" viewBox="0 0 120 120" aria-hidden="true"><use href="#rose-spray"/></svg>
+      <svg class="floating-flower fl3" viewBox="0 0 120 120" aria-hidden="true"><use href="#rose-spray"/></svg>
+      <svg class="cake-svg" id="cake" viewBox="0 0 320 320" role="img" aria-label="생신 축하 케이크와 켜진 촛불 세 개. 아래 버튼으로 촛불을 끌 수 있습니다.">
+        <defs>
+          <radialGradient id="g-halo"><stop stop-color="#ffe8a5" stop-opacity=".95"/><stop offset="1" stop-color="#ffe8a5" stop-opacity="0"/></radialGradient>
+          <linearGradient id="g-flame" x1="0" x2="0" y1="1" y2="0"><stop stop-color="#ff8326"/><stop offset=".52" stop-color="#ffd75d"/><stop offset="1" stop-color="#fffcea"/></linearGradient>
+          <linearGradient id="g-plate" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#fff6c3"/><stop offset=".5" stop-color="#ebc277"/><stop offset="1" stop-color="#ab753b"/></linearGradient>
+          <linearGradient id="g-cake" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#ffc8c7"/><stop offset=".5" stop-color="#e58da6"/><stop offset="1" stop-color="#bb577d"/></linearGradient>
+          <linearGradient id="g-cream" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fffefa"/><stop offset="1" stop-color="#ffeadb"/></linearGradient>
+        </defs>
+        <g fill="#ffdfab"><path d="M48 117 53 131 67 136 53 141 48 155 43 141 29 136 43 131Z"/><path d="M269 93 273 103 284 107 273 111 269 122 265 111 254 107 265 103Z"/><circle cx="79" cy="69" r="3"/><circle cx="240" cy="54" r="4"/><circle cx="270" cy="174" r="3"/></g>
+        <circle class="halo" cx="111" cy="99" r="39" fill="url(#g-halo)"/><circle class="halo" cx="160" cy="84" r="43" fill="url(#g-halo)"/><circle class="halo" cx="208" cy="99" r="39" fill="url(#g-halo)"/>
+        <ellipse cx="160" cy="273" rx="135" ry="21" fill="url(#g-plate)"/><ellipse cx="160" cy="268" rx="121" ry="13" fill="#fff2cc"/>
+        <rect x="54" y="193" width="212" height="74" rx="12" fill="url(#g-cake)"/>
+        <ellipse cx="160" cy="195" rx="106" ry="16" fill="url(#g-cream)"/>
+        <path d="M54 198 Q66 223 78 200 Q91 226 105 200 Q118 223 132 200 Q146 224 160 200 Q174 223 188 200 Q201 223 216 200 Q229 225 242 200 Q254 223 266 198 L266 189 Q160 181 54 189Z" fill="url(#g-cream)"/>
+        <path d="M63 242 Q160 257 257 242" stroke="#fff0d4" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <g fill="#fff2d9"><circle cx="76" cy="243" r="5"/><circle cx="101" cy="248" r="5"/><circle cx="127" cy="252" r="5"/><circle cx="155" cy="254" r="5"/><circle cx="183" cy="252" r="5"/><circle cx="209" cy="248" r="5"/><circle cx="235" cy="243" r="5"/></g>
+        <rect x="86" y="145" width="148" height="57" rx="10" fill="url(#g-cake)"/>
+        <ellipse cx="160" cy="148" rx="74" ry="13" fill="url(#g-cream)"/>
+        <path d="M86 151 Q96 171 107 153 Q117 171 128 153 Q139 174 150 153 Q161 171 172 153 Q184 175 196 153 Q210 172 222 151 Q227 160 234 151 L234 142 Q160 136 86 142Z" fill="url(#g-cream)"/>
+        <path d="M98 182 Q160 192 222 182" fill="none" stroke="#fff0d4" stroke-width="4"/>
+        <g fill="#efd08b"><circle cx="105" cy="185" r="3"/><circle cx="124" cy="188" r="3"/><circle cx="143" cy="190" r="3"/><circle cx="162" cy="190" r="3"/><circle cx="181" cy="190" r="3"/><circle cx="201" cy="188" r="3"/><circle cx="219" cy="185" r="3"/></g>
+        <ellipse cx="160" cy="225" rx="43" ry="19" fill="#fff6e3" stroke="#dfb96e" stroke-width="2"/>
+        <text x="160" y="230" font-size="12" fill="#98526b" font-family="Georgia,serif" font-weight="bold" text-anchor="middle" letter-spacing="1">LOVE</text>
+        <g transform="translate(77 190)"><circle r="9" fill="#f6b5c5"/><path d="M-7 0Q-5-7 0-6Q6-7 7 0Q5 8 0 7Q-6 7-7 0Z" fill="#dd7996"/><circle r="3" fill="#fff4dd"/></g>
+        <g transform="translate(243 190)"><circle r="9" fill="#f6b5c5"/><path d="M-7 0Q-5-7 0-6Q6-7 7 0Q5 8 0 7Q-6 7-7 0Z" fill="#dd7996"/><circle r="3" fill="#fff4dd"/></g>
+        <g><rect x="105" y="103" width="12" height="43" rx="3" fill="#ffdacd"/><rect x="154" y="91" width="12" height="55" rx="3" fill="#edbe6b"/><rect x="203" y="103" width="12" height="43" rx="3" fill="#ffdacd"/>
+          <g stroke="#ffffff" stroke-width="3" opacity=".65"><path d="M109 109v31m49-43v42m49-30v31"/></g>
+          <path d="M111 95v9m49-21v9m49 3v9" stroke="#65505b" stroke-width="2.4"/></g>
+        <path class="flame" d="M111 67C98 81 102 94 111 98C120 92 122 81 111 67Z" fill="url(#g-flame)"/>
+        <path class="flame" d="M160 53C146 67 149 80 160 86C170 79 174 67 160 53Z" fill="url(#g-flame)"/>
+        <path class="flame" d="M209 67C196 81 200 94 209 98C218 92 220 81 209 67Z" fill="url(#g-flame)"/>
+        <path class="smoke" d="M111 96Q105 84 112 78Q121 69 114 57" fill="none" stroke="#f5ecdf" stroke-width="3" stroke-linecap="round"/>
+        <path class="smoke" d="M160 84Q154 72 161 66Q170 57 163 45" fill="none" stroke="#f5ecdf" stroke-width="3" stroke-linecap="round"/>
+        <path class="smoke" d="M209 96Q203 84 210 78Q219 69 212 57" fill="none" stroke="#f5ecdf" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <span class="cake-visual-message" aria-hidden="true">WITH ALL MY LOVE</span>
+    </div>
+    <div class="cake-controls">
+      <p class="eyebrow">소원을 빌고 촛불을 꺼 주세요</p>
+      <p class="mic-status" id="mic-status" aria-live="polite"></p>
+      <div class="meter" id="meter" hidden><i id="meter-bar"></i></div>
+      <button class="cta cake-btn" id="blow-btn">🎤 후~ 불어서 촛불 끄기</button>
+      <button class="ghost" id="tap-blow">✨ 손가락으로 촛불 끄기</button>
+    </div>
+    <div class="divider-mark" aria-hidden="true">♥</div>
+    <span class="birthday-tag">손녀 세린 드림</span>
+  </section>
+
+  <!-- Second scene: pink and gold envelope -->
+  <section class="scene mail" id="scene-mail" hidden>
+    <div class="mail-card-title">
+      <p class="eyebrow">할아버지께 전하는 특별한 선물</p>
+      <h1>축하의 마음을 담은<br><em>편지가 도착했어요</em></h1>
+      <p class="lead">오늘의 주인공을 위한<br>세린이의 작은 선물이에요.</p>
+    </div>
+    <div class="envelope-wrapper"><div class="envelope" id="envelope">
+      <div class="env-back"></div><div class="env-letter"><span>세린이의<br>생신 축하 편지</span></div>
+      <div class="env-front"></div><div class="env-flap"></div>
+      <button class="seal-btn" id="open-btn" aria-label="생신 축하 편지 봉투 열기">♥ 열기</button>
+    </div></div>
+    <p class="hint">가운데 스티커나 봉투를 눌러<br>편지를 열어 주세요.</p>
+    <div class="divider-mark" aria-hidden="true">✿</div>
+  </section>
+
+  <!-- Third scene: preserve original letter in full -->
+  <section class="scene" id="scene-letter" hidden>
+    <div class="letter-overline">A LETTER FILLED WITH LOVE</div>
+    <article class="sheet">
+      <header class="head">
+        <span class="eyebrow">생신 축하드려요</span>
+        <h1>할아버지, 생신 축하드립니다</h1>
+      </header>
+      <span class="pencil" id="pencil" aria-hidden="true" hidden>✎</span>
+      <div id="letter-body">
+      <p class="greeting pending">할아버지께</p>
+<p class="pending">할아버지, 생신 축하드립니다. 올해도 이렇게 건강하게 생신을 맞으셔서 참 다행이고, 저도 마음이 놓여요.</p>
+<p class="pending">자주 찾아뵙지 못해 늘 마음 한편이 무거웠어요. 그래도 할아버지 생각은 문득문득 떠올라요. 오늘은 그 마음을 편지에 담아 조용히 전해 드리고 싶었어요.</p>
+<p class="pending">무엇보다 건강이 제일이에요. 식사 거르지 마시고, 햇살 좋은 날엔 가볍게 산책도 하셨으면 해요. 어디 불편하신 데가 있으면 참지 마시고 꼭 병원에 다녀오세요.</p>
+<p class="pending">그리고 즐거운 일이 많으셨으면 좋겠어요. 맛있는 음식 드시고, 좋은 분들과 자주 만나시고, 웃는 날이 하루하루 늘어나길 바랍니다.</p>
+<p class="pending">다음에 뵐 때는 더 밝은 얼굴로 인사드릴게요. 다시 한번 생신 진심으로 축하드리고, 오래오래 건강하고 행복하세요.</p>
+      <div class="sign pending"><span class="from">손녀</span><span class="name">세린 올림</span></div>
+      </div>
+    </article>
+    <button class="ghost skip-typing" id="skip-typing">한 번에 다 보기</button>
+    <p class="post-letter" id="post-letter" hidden>편지를 읽으셨다면 아래 버튼으로<br>세린이에게 한마디 남겨 주세요.</p>
+    <button class="cta" id="to-reply" hidden>💌 세린이에게 답장하기</button>
+    <div class="divider-mark" aria-hidden="true">♥</div>
+  </section>
+
+  <!-- Fourth scene: preserve all six answer choices -->
+  <section class="scene" id="scene-reply" hidden>
+    <div class="reply-header">
+      <p class="eyebrow">할아버지의 따뜻한 마음</p>
+      <h1>세린이에게 어떤 마음을<br><em>전해 주시겠어요?</em></h1>
+      <p class="hint">하나를 눌러 주시면<br>세린이에게 바로 전해집니다.</p>
+    </div>
+    <div class="stickers" id="stickers">
+      <button class="sticker" data-emo="🏆" data-label="최고야"><span class="emo">🏆</span>최고야</button>
+      <button class="sticker" data-emo="❤️" data-label="사랑한다"><span class="emo">❤️</span>사랑한다</button>
+      <button class="sticker" data-emo="🙏" data-label="고맙구나"><span class="emo">🙏</span>고맙구나</button>
+      <button class="sticker" data-emo="🤗" data-label="보고 싶다"><span class="emo">🤗</span>보고 싶다</button>
+      <button class="sticker" data-emo="🌸" data-label="항상 건강해라"><span class="emo">🌸</span>항상 건강해라</button>
+      <button class="sticker" data-emo="😊" data-label="잘 읽었다"><span class="emo">😊</span>잘 읽었다</button>
+    </div>
+    <p class="note" id="reply-status" aria-live="polite"></p>
+    <button class="ghost" id="back-to-letter">← 편지 다시 보기</button>
+  </section>
+
+  <!-- Fifth scene: saved reply -->
+  <section class="scene" id="scene-done" hidden>
+    <p class="eyebrow">세상에서 가장 따뜻한 답장</p>
+    <h1>답장이<br><em>세린이에게 전해졌어요</em></h1>
+    <div class="kept">
+      <div class="big" id="done-emo">❤️</div>
+      <div class="label" id="done-label">사랑한다</div>
+      <div class="when" id="done-when"></div>
+      <p class="thanks" id="done-thanks">할아버지의 답장이<br>세린이에게 전달되었어요.<br>감사합니다!</p>
+    </div>
+    <div class="history" id="history" hidden><p class="eyebrow">지금까지의 답장</p><ul id="history-list"></ul></div>
+    <button class="ghost" id="reread">💌 편지 다시 읽기</button>
+    <button class="ghost" id="again">🌷 다른 답장 남기기</button>
+    <p class="note" id="local-note" hidden>인터넷 연결이 끊겨 이 기기에만 보관되었습니다. 연결 후 다시 눌러 주세요.</p>
+  </section>
+  <footer class="footer">FROM SERIN</footer>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const scenes = {cake:$('scene-cake'),mail:$('scene-mail'),letter:$('scene-letter'),reply:$('scene-reply'),done:$('scene-done')};
+  const prefersReduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(name){for(const [key,node] of Object.entries(scenes))node.hidden=(key!==name);
+    window.scrollTo({top:0,behavior:prefersReduced()?'auto':'smooth'});}
+  function celebrate(amount=85){
+    if(prefersReduced())return;
+    const layer=$('confetti-layer'), colors=['#e8b965','#ffecad','#f4a3ae','#ef7fa4','#d2a6eb','#fff7e9','#8ebda7'];
+    const frag=document.createDocumentFragment();
+    for(let i=0;i<amount;i++){
+      const p=document.createElement('span');p.className='confetti-piece';
+      const size=5+Math.random()*8;
+      p.style.left=(Math.random()*100)+'%';p.style.width=size+'px';p.style.height=(size*(.8+Math.random()))+'px';
+      p.style.background=colors[Math.floor(Math.random()*colors.length)];
+      p.style.borderRadius=Math.random()>.66?'50%':'2px';
+      p.style.setProperty('--duration',(2.8+Math.random()*2.3)+'s');
+      p.style.setProperty('--delay',(Math.random()*.65)+'s');
+      p.style.setProperty('--drift',((Math.random()-.5)*210)+'px');
+      p.style.setProperty('--spin',(260+Math.random()*900)+'deg');
+      frag.appendChild(p);
+    }
+    layer.appendChild(frag);
+    window.setTimeout(()=>{layer.replaceChildren();},6300);
+  }
+  const LS_KEY='serin-letter-replies';
+  function readLocal(){try{const list=JSON.parse(localStorage.getItem(LS_KEY)||'[]');return Array.isArray(list)?list:[]}catch{return[]}}
+  function writeLocal(list){try{localStorage.setItem(LS_KEY,JSON.stringify(list))}catch{}}
+  let replies=readLocal();
+  const fmt=iso=>{const d=new Date(iso);return isNaN(d)?'':d.toLocaleString('ko-KR',{dateStyle:'medium',timeStyle:'short'})};
+  function renderDone(latest,shared=false){
+    $('done-emo').textContent=latest.emo;$('done-label').textContent=latest.label;$('done-when').textContent=fmt(latest.at);
+    $('done-thanks').innerHTML=shared?'할아버지의 답장이<br>세린이에게 전달되었어요.<br>감사합니다!':
+      '인터넷 연결이 없어 이 기기에만 보관되었어요.<br>연결된 뒤 다시 눌러 주세요.';
+    $('local-note').hidden=shared;
+    const ul=$('history-list');ul.replaceChildren();
+    replies.slice(0,20).forEach(r=>{const li=document.createElement('li'),a=document.createElement('span'),b=document.createElement('span');
+      a.textContent=r.emo+' '+r.label;b.textContent=fmt(r.at);li.append(a,b);ul.append(li)});
+    $('history').hidden=replies.length<2;
+  }
+  // ---- Supabase: shared, realtime store for the replies ----
+  const SUPABASE_URL='https://gcxawlhzbhfrewkaujrc.supabase.co';
+  const SUPABASE_KEY='sb_publishable_d-tFzzY4H5CPXpEzJtXGHQ_OZ4h6GZP';
+  const TABLE='letter_replies';
+  const sb=(window.supabase&&SUPABASE_URL&&SUPABASE_KEY)?window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY):null;
+  const rowToReply=r=>({emo:r.emo,label:r.label,at:r.created_at});
+  async function loadReplies(){
+    if(!sb)return;
+    const {data,error}=await sb.from(TABLE).select('emo,label,created_at').order('created_at',{ascending:false}).limit(50);
+    if(error||!data)return;
+    replies=data.map(rowToReply);writeLocal(replies);
+    if(!scenes.done.hidden&&replies.length)renderDone(replies[0],true);
+  }
+  if(sb){
+    loadReplies();
+    sb.channel('letter-replies').on('postgres_changes',{event:'INSERT',schema:'public',table:TABLE},payload=>{
+      const r=rowToReply(payload.new);
+      if(replies.some(x=>x.at===r.at&&x.label===r.label))return;
+      replies=[r,...replies];writeLocal(replies);
+      if(!scenes.done.hidden)renderDone(replies[0],true);
+    }).subscribe();
+  }
+  // "#replies" opens the keepsake screen directly (for Serin to check the latest reply).
+  if(location.hash==='#replies'){
+    (async()=>{await loadReplies();if(replies.length){renderDone(replies[0],true);show('done');}
+      else{$('done-emo').textContent='💌';$('done-label').textContent='아직 답장이 없어요';$('done-when').textContent='';
+        $('done-thanks').textContent='할아버지께서 답장을 남기시면 이 화면에 바로 나타납니다.';$('local-note').hidden=true;show('done');}})();
+  }
+  let blown=false,audioCtx=null,raf=0,micStream=null;
+  function stopMic(){
+    cancelAnimationFrame(raf);
+    if(micStream){micStream.getTracks().forEach(t=>t.stop());micStream=null;}
+    if(audioCtx){try{audioCtx.close()}catch(e){}audioCtx=null;}
+  }
+  function extinguish(){if(blown)return;blown=true;stopMic();$('cake').classList.add('out');
+    window.setTimeout(()=>{musicAllowed=true;startMusic();},400);
+    $('mic-status').textContent='🎉 소원이 이루어지길 바라요! 축하 편지가 도착합니다.';
+    $('blow-btn').hidden=true;$('tap-blow').hidden=true;$('meter').hidden=true;
+    celebrate(105);window.setTimeout(()=>show('mail'),prefersReduced()?200:1950);
+  }
+  $('tap-blow').addEventListener('click',extinguish);
+  $('cake').addEventListener('click',extinguish);
+  $('blow-btn').addEventListener('click',async()=>{
+    const st=$('mic-status');
+    if(!navigator.mediaDevices?.getUserMedia){st.textContent='마이크 사용이 어려워요. 아래 손가락 버튼을 눌러 주세요.';return;}
+    try{
+      micStream=await navigator.mediaDevices.getUserMedia({audio:true});
+      if(blown){stopMic();return;}
+      audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+      const src=audioCtx.createMediaStreamSource(micStream),an=audioCtx.createAnalyser();an.fftSize=1024;src.connect(an);
+      const buf=new Uint8Array(an.fftSize);st.textContent='마이크에 대고 크게 후~ 불어 주세요!';
+      $('blow-btn').hidden=true;$('meter').hidden=false;
+      if(!bgm.paused){bgm.pause();setMusicUI(false);}
+      let hot=0,frames=0,ambient=0;
+      (function tick(){
+        if(blown)return;an.getByteTimeDomainData(buf);let sum=0;
+        for(let i=0;i<buf.length;i++){const v=(buf[i]-128)/128;sum+=v*v}
+        const rms=Math.sqrt(sum/buf.length);$('meter-bar').style.width=Math.min(100,rms*420)+'%';
+        frames++;
+        if(frames<=25){ambient=Math.max(ambient,rms);raf=requestAnimationFrame(tick);return;} // ~0.4s: learn the room's noise first
+        const threshold=Math.max(.15,ambient*2.5);
+        hot=rms>threshold?hot+1:Math.max(0,hot-2);
+        if(hot>9){extinguish();return}
+        raf=requestAnimationFrame(tick);
+      })();
+    }catch(e){stopMic();st.textContent='마이크를 사용할 수 없어요. 손가락으로 촛불을 꺼 주세요.';}
+  });
+  // ---- background music (browsers allow sound only after a tap) ----
+  const bgm=$('bgm'),musicBtn=$('music-btn');let musicWanted=true;
+  function setMusicUI(on){musicBtn.textContent=on?'🎵':'🔇';musicBtn.classList.toggle('on',on);musicBtn.setAttribute('aria-pressed',String(on));}
+  async function startMusic(){if(!musicAllowed||!musicWanted||!bgm.paused)return;bgm.volume=.45;try{await bgm.play();setMusicUI(true);}catch(e){setMusicUI(false);}}
+  musicBtn.addEventListener('click',e=>{e.stopPropagation();if(bgm.paused){musicWanted=true;musicAllowed=true;startMusic();}else{musicWanted=false;bgm.pause();setMusicUI(false);}});
+  let musicAllowed=false; // stays silent until the candles are out, so the mic hears only the breath
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)bgm.pause();else startMusic();});
+
+  // ---- sketch-in letter with auto-scroll (text already laid out; each block is "drawn" by a wipe) ----
+  let typed=false,typeTimer=0,pencilRaf=0;
+  const letterNodes=[...$('letter-body').children];
+  function finishLetter(){
+    clearTimeout(typeTimer);cancelAnimationFrame(pencilRaf);$('pencil').hidden=true;
+    letterNodes.forEach(n=>{n.classList.remove('pending','sketch');n.classList.add('done');n.style.removeProperty('--dur');});
+    $('skip-typing').hidden=true;$('post-letter').hidden=false;$('to-reply').hidden=false;typed=true;
+    $('to-reply').scrollIntoView({behavior:prefersReduced()?'auto':'smooth',block:'end'});
+  }
+  function keepInView(el){const r=el.getBoundingClientRect();const target=window.innerHeight*.62;
+    if(r.bottom>target)window.scrollBy({top:r.bottom-target,behavior:prefersReduced()?'auto':'smooth'});}
+  function movePencil(node,progress){
+    const sheet=node.closest('.sheet'),r=node.getBoundingClientRect(),sr=sheet.getBoundingClientRect();
+    // the wipe front runs diagonally across the block; the pencil rides that front
+    const x=(r.left-sr.left)+progress*r.width-10,y=(r.top-sr.top)+progress*r.height-18;
+    const pen=$('pencil');pen.style.left=Math.max(4,Math.min(sr.width-34,x))+'px';pen.style.top=Math.max(0,y)+'px';
+  }
+  function typeLetter(){
+    if(typed)return;
+    if(prefersReduced()){finishLetter();return;}
+    let i=0;$('pencil').hidden=false;
+    const next=()=>{
+      if(i>=letterNodes.length){typeTimer=setTimeout(finishLetter,500);return;}
+      const node=letterNodes[i];
+      const len=node.classList.contains('sign')?20:node.textContent.length;
+      const dur=Math.max(1100,Math.min(5200,len*48));
+      node.style.setProperty('--dur',dur+'ms');
+      node.classList.remove('pending');node.classList.add('sketch');keepInView(node);
+      const t0=performance.now();
+      const track=()=>{const pr=Math.min(1,(performance.now()-t0)/dur);movePencil(node,pr);
+        if(pr<1)pencilRaf=requestAnimationFrame(track);};
+      track();
+      typeTimer=setTimeout(()=>{node.classList.remove('sketch');node.classList.add('done');keepInView(node);i++;next();},dur+350);
+    };
+    typeTimer=setTimeout(next,600);
+  }
+  $('skip-typing').addEventListener('click',finishLetter);
+
+  $('envelope').addEventListener('click',()=>{
+    $('envelope').classList.add('open');startMusic();
+    window.setTimeout(()=>{show('letter');celebrate(35);typeLetter();},prefersReduced()?120:1300);
+  },{once:true});
+  $('to-reply').addEventListener('click',()=>show('reply'));
+  $('back-to-letter').addEventListener('click',()=>show('letter'));
+  $('reread').addEventListener('click',()=>show('letter'));
+  $('again').addEventListener('click',()=>{$('reply-status').textContent='';show('reply')});
+  let sending=false;
+  $('stickers').addEventListener('click',async ev=>{
+    const btn=ev.target.closest('.sticker');if(!btn||sending)return;
+    sending=true;
+    document.querySelectorAll('.sticker').forEach(b=>{b.disabled=true;b.classList.toggle('picked',b===btn)});
+    const reply={emo:btn.dataset.emo,label:btn.dataset.label,at:new Date().toISOString()};
+    $('reply-status').textContent='세린이에게 전달하는 중…';
+    let shared=false;
+    if(sb){try{const {error}=await sb.from(TABLE).insert({emo:reply.emo,label:reply.label});shared=!error;}catch(e){shared=false;}}
+    replies=[reply,...replies.filter(r=>r.at!==reply.at)];writeLocal(replies);
+    renderDone(reply,shared);show('done');celebrate(85);
+    $('reply-status').textContent='';
+    document.querySelectorAll('.sticker').forEach(b=>{b.disabled=false;b.classList.remove('picked')});
+    sending=false;
+  });
+})();
+</script>
+</body>
+</html>
