@@ -533,12 +533,12 @@
       (function tick(){
         if(blown)return;an.getByteTimeDomainData(buf);let sum=0;
         for(let i=0;i<buf.length;i++){const v=(buf[i]-128)/128;sum+=v*v}
-        const rms=Math.sqrt(sum/buf.length);$('meter-bar').style.width=Math.min(100,rms*420)+'%';
+        const rms=Math.sqrt(sum/buf.length);$('meter-bar').style.width=Math.min(100,rms*700)+'%';
         frames++;
         if(frames<=25){ambient=Math.max(ambient,rms);raf=requestAnimationFrame(tick);return;} // ~0.4s: learn the room's noise first
-        const threshold=Math.max(.15,ambient*2.5);
+        const threshold=Math.max(.08,ambient*2);
         hot=rms>threshold?hot+1:Math.max(0,hot-2);
-        if(hot>9){extinguish();return}
+        if(hot>6){extinguish();return}
         raf=requestAnimationFrame(tick);
       })();
     }catch(e){stopMic();st.textContent='마이크를 사용할 수 없어요. 손가락으로 촛불을 꺼 주세요.';}
